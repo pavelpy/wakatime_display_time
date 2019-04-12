@@ -15,8 +15,9 @@ def main():
         seconds = int(sum(i['duration'] for i in req.json()['data']))
         minutes, seconds = divmod(seconds, 60)
         hours, minutes = divmod(minutes, 60)
-        sys.stdout.write('Coding progress: {:d}:{:02d}:{:02d}'.format(hours, minutes, seconds))
-        sys.stdout.flush()
+        print('Coding progress: {:d}:{:02d}:{:02d}'.format(hours, minutes, seconds), end="\r", flush=True)
+        # sys.stdout.write('Coding progress: {:d}:{:02d}:{:02d}'.format(hours, minutes, seconds))
+        # sys.stdout.flush()
         time.sleep(60)
 
 
